@@ -11,6 +11,17 @@ class Room(object):
     def add_paths(self, paths):
         self.paths.update(paths)
 
+class Death(Room):
+
+    def __init__(self, description):
+        super(Death, self).__init__("death", description)
+
+class End(Room):
+
+    def __init__(self, description):
+        super(End, self).__init__("The End", description)
+
+
 central_corridor = Room("Central Corridor",
 """
 The Gothons of Planet Percal #25 have entered your ship and destroyed
@@ -76,7 +87,7 @@ need to pick one to take. Some of them could be damaged, but you don't
 have time to look. There's 5 pods: which one do you take?
 """)
 
-end_win = Room("The End",
+end_win = End(
 """
 You jump into pod 2 and hit the eject button. The pod easily slides out
 into space heading to the planet below. As it flies to the planet, you look
@@ -86,14 +97,56 @@ the Gothon ship at the same time.
 Good job. You won!
 """)
 
-end_lose = Room("The End",
+end_lose = End(
 """
 You jump into a random pod and hit the eject button. The pod escapes out into the
 void of space, and then implodes as the hull ruptures, crushing your body
 into jelly.
 """)
 
-generic_death = Room("death", "you died.")
+generic_death = Death("you died.")
+
+shoot_death = Death(
+"""
+Quick on the draw, you pull out your blaster and shoot him in his stupid
+face. His clown costume is flowing and moving around his body, which messes
+up your aim. Your laser hits his costume, but misses him entirely. This
+completely ruins his brand new costume which his mommy just bought him.
+Enraged, he shoots you repeatedly in the face until you die. Then he eats
+your soul.
+"""
+)
+
+dodge_death = Death(
+"""
+Like a world class boxer you dodge, weave, slip and slide right as
+the Gothon's blaster cranks a laser past your head. In the middle of
+your artful dodge your foot slips and you bang your head on the metal
+wall and pass out.
+
+You wake up shortly afterwards, only to die as the Gothon stomps your
+ugly face in and devours your soul.
+"""
+)
+
+laser_weapon_armory_death = Death(
+"""
+The lock buzzes one last time and you hear a sickening melting sound
+as the mechanism is fused together.
+You decide to sit there, and finally the Gothons blow up your ship and
+you die.
+"""
+)
+
+the_bridge_death = Death(
+"""
+In a panic, you throw the bomb at the group of Gothons and make a leap for
+the door. Right as you drop it a Gothon shoots you right in the back,
+killing you.
+As you die, you see another Gothon frantically trying to disarm the bomb.
+You die knowing they will probably blow up when it goes off.
+"""
+)
 
 escape_pod.add_paths({
     '2': end_win,
@@ -101,18 +154,18 @@ escape_pod.add_paths({
 })
 
 the_bridge.add_paths({
-    'throw the bomb': generic_death,
+    'throw the bomb': the_bridge_death,
     'slowly place the bomb': escape_pod
 })
 
 laser_weapon_armory.add_paths({
     '0132': the_bridge,
-    '*': generic_death
+    '*': laser_weapon_armory_death
 })
 
 central_corridor.add_paths({
-    'shoot': generic_death,
-    'dodge!': generic_death,
+    'shoot': shoot_death,
+    'dodge!': dodge_death,
     'tell a joke': laser_weapon_armory
 })
 

@@ -119,7 +119,7 @@ class LaserWeaponArmory(Scene):
     """
             return 'the_bridge'
         else:
-            print"""
+            print """
     The lock buzzes one last time and you hear a sickening melting sound
     as the mechanism is fused together.
     You decide to sit there, and finally the Gothons blow up your ship and
