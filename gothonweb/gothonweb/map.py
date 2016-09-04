@@ -32,7 +32,7 @@ escape pod.
 
 You're running down the central corridor to the Weapons Armory when
 a Gothon jumps out, red scaly skin, dark grimy teeth, and evil clown
-costume flowing around his hate filled body. He's blocking th door
+costume flowing around his hate filled body. He's blocking the door
 to the Armory and about to pull a weapon to blast you.
 """)
 
@@ -47,7 +47,7 @@ face. His writhing body goes lifeless, and you jump over his ugly corpse
 into the Armory.
 
 You do a dive roll into the Weapon Armory, crouch, and scan the room for
-more Gothons than may be hiding. It's dead quiet; in fact, TOO quiet.
+more Gothons that may be hiding. It's dead quiet; in fact, TOO quiet.
 You stand up and run to the far side of the room where the neutron destruct
 bomb is housed inside a container. There's a keypad lock on the box, and
 you need the code to get the bomb out. If you get the code wrong 10 times
